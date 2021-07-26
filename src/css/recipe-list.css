@@ -1,7 +1,13 @@
+.page-title {
+  font-family: 'Fredericka the Great', cursive;
+  text-align: center;
+}
+
 .recipe-list {
-  border-right: 1px solid black;
-  min-height: 100vh;
-  width: 50%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 50px;
+  margin: 50px;
 }
 
 .recipe-list__add-recipe-btn-container {
@@ -9,4 +15,14 @@
   text-align: center;
 }
 
+@media (min-width: 700px) {
+  .recipe-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
+@media (min-width: 992px) {
+  .recipe-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

@@ -1,24 +1,27 @@
 .recipe {
-  padding: 20px;
+  padding: 30px;
   padding-bottom: 40px;
-  border-bottom: 1px solid black;
-}
-
-.recipe:last-child {
-  border-bottom: none;
-  padding-bottom: 10px;
+/*  background: url('../img/chalkboard.jpg');
+  background-size: cover;*/
+  color: #black;
+  opacity: 0.9;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+/*  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;*/
 }
 
 .recipe__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 30px;
 }
 
 .recipe__title {
   margin: 0;
-  font-size: 1.7rem;
+  font-size: 1.3rem;
+  color: #EFD5A5;
+  font-family: 'Fredericka the Great', cursive;
+  text-transform: uppercase;
+  letter-spacing:4px;
+  text-align: center;
 }
 
 .recipe__row {
@@ -27,6 +30,8 @@
 
 .recipe__label {
   margin-right: 5px;
+  text-transform: uppercase;
+  font-size:16px;
 }
 
 .recipe__value {

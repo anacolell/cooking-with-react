@@ -8,16 +8,17 @@
 
 
 *, *::before, *::after {
-  font-family: Gotham Rounded, sans-serif;
   padding: 0;
   margin:0;
   box-sizing: border-box;
 }
 
 html {
-  font-size:25px;
+  font-size:14px;
 }
 
-.mr-1 {
-  margin-right: 5px;
+body {
+  font-family: 'Gotham rounded', cursive;
+/*  background: url('../img/wood.jpg');
+  background-size: cover;*/
 }

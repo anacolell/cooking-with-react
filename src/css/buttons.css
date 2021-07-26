@@ -1,29 +1,15 @@
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
 .btn {
-  background:none;
-  border: none;
-  outline: none;
-  font-weight: bold;
-  font-size: inherit;
-  border-radius: 5px;
-  padding: 5px 20px;
   cursor: pointer;
+  margin-left:14px;
 }
 
-.btn--primary {
-  color: white;
-  background-color: hsl(200, 100%, 50%);
+.btn:hover,
+.btn:focus {
+  cursor: pointer;
+  margin-left:14px;
+  color: #EFD5A5;
 }
-
-.btn--primary:hover {
-  background-color: hsl(200, 100%, 35%);
-}
-
-.btn--danger {
-  color: white;
-  background-color: hsl(0, 100%, 50%);
-}
-
-.btn--danger:hover {
-  background-color: hsl(0, 100%, 35%);
-}
-
