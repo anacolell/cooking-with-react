@@ -36,6 +36,7 @@
   background: white;
   border-radius: 15px;
   height: auto;
+  transform: rotateX(0deg)
 }
 
 .recipe .back {
