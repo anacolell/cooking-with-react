@@ -35,6 +35,7 @@ function App() {
   function handleRecipeAdd() {
     const newRecipe = {
       id: uuidv4(),
+      image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=414&q=80',
       name: '',
       servings: 1,
       cookTime: '',
@@ -64,8 +65,18 @@ function App() {
 
   return (
     <RecipeContext.Provider value={recipeContextValue}>
+    <h1 className="page-title">Best recipes</h1>
+    <div className="container">
       <RecipeList recipes = {recipes} />
+    </div>
       {selectedRecipe && <RecipeEdit recipe={selectedRecipe} /> }
+    <div className="recipe-list__add-recipe-btn-container">
+      <button
+      className="btn btn--primary"
+      onClick={handleRecipeAdd}
+      >
+      Add Recipe</button>
+    </div>
     </RecipeContext.Provider>
   )
 }
@@ -73,6 +84,7 @@ function App() {
 const sampleRecipes  = [
   {
     id:1,
+    image: 'https://images.unsplash.com/photo-1501443762994-82bd5dace89a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
     name: 'Plain Chicken',
     servings: 3,
     cookTime: '1:45',
@@ -92,6 +104,7 @@ const sampleRecipes  = [
   },
   {
     id:2,
+    image: 'https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=506&q=80',
     name: 'Plain Pork',
     servings: 3,
     cookTime: '0:45',
