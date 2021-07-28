@@ -35,14 +35,15 @@ function App() {
   function handleRecipeAdd() {
     const newRecipe = {
       id: uuidv4(),
-      image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=414&q=80',
+      image: '/img/default.jpg',
       name: '',
       servings: 1,
       cookTime: '',
       instructions: '',
       ingredients: [
         { id:uuidv4(), name:'', amount: '' }
-      ]
+      ],
+      author: ''
     }
 
     setSelectedRecipeId(newRecipe.id)
@@ -84,43 +85,45 @@ function App() {
 const sampleRecipes  = [
   {
     id:1,
-    image: 'https://images.unsplash.com/photo-1501443762994-82bd5dace89a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
-    name: 'Plain Chicken',
+    image: '/img/poke.jpg',
+    name: 'Poke Bowl',
     servings: 3,
     cookTime: '1:45',
-    instructions: "1. Put salt on chicken\n2. Put chicken in oven\n3. Eat chicken",
+    instructions: "1. Cut all the ingredients\n2. Put them in a bowl\n3. Enjoy your Poke bowl!",
     ingredients: [
       {
         id: 1,
-        name: 'Chicken',
-        amount: '2 Pounds'
+        name: 'Tofu',
+        amount: '1 Block'
       },
       {
         id: 2,
-        name: 'Salt',
-        amount: '1 Tbs'
+        name: 'Tomatoes',
+        amount: '1'
       }
-    ]
+    ],
+    author: 'Ana'
   },
   {
     id:2,
     image: 'https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=506&q=80',
-    name: 'Plain Pork',
+    name: 'Raspberry Ice Cream',
     servings: 3,
     cookTime: '0:45',
-    instructions: "1. Put paprika on pork\n2. Put pork in oven\n3. Eat pork",
+    instructions: "1. Blend raspberries and milk\n2. Put mixture in the freezer for 40 minutes\n3. Enjoy your raspberry ice cream!",
     ingredients: [
       {
         id: 1,
-        name: 'Pork',
-        amount: '3 Pounds'
+        name: 'Frozen raspberries',
+        amount: '500 g'
       },
       {
         id: 2,
-        name: 'Paprika',
-        amount: '2 Tbs'
+        name: 'Milk of your choice',
+        amount: '1 Liter'
       }
-    ]
+    ],
+    author: 'Ana'
   }
 ]
 

@@ -2,6 +2,8 @@ import React, { useContext } from 'react'
 import RecipeIngredientEdit from './RecipeIngredientEdit'
 import { RecipeContext } from './App'
 import { v4 as uuidv4 } from 'uuid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 export default function RecipeEdit({ recipe }) {
   const { handleRecipeChange, handleRecipeSelect } = useContext(RecipeContext)
@@ -96,7 +98,12 @@ export default function RecipeEdit({ recipe }) {
           />
         </div>
         <br />
-        <label className="recipe-edit__label">Ingredients</label>
+        <div className="recipe-edit__add_ingredient">
+          <label className="recipe-edit__label">Ingredients</label>
+          <div onClick={() => handleIngredientAdd()}>
+            <FontAwesomeIcon className="recipe-edit__icon-add-ingredient" icon={faPlus} />
+          </div>
+        </div>
         <div className="recipe-edit__ingredient-grid">
           <div>Name</div>
           <div>Amount</div>
@@ -110,13 +117,20 @@ export default function RecipeEdit({ recipe }) {
             />
           ))}
         </div>
-        <div className="recipe-edit__add-ingredient-btn-container">
-          <button
-            className="btn btn--primary"
-            onClick={() => handleIngredientAdd()}
-          >
-            Add Ingredient
-          </button>
+        <div className="recipe-edit__details-grid">
+          <label
+            htmlFor="author"
+            className="recipe-edit__label">
+            Created by
+          </label>
+          <input
+            type="text"
+            name="author"
+            id="author"
+            value={recipe.author}
+            onChange={e => handleChange({ author: e.target.value })}
+            className="recipe-edit__input"
+            />
         </div>
       </div>
     </>

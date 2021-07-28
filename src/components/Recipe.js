@@ -21,6 +21,7 @@ export default function Recipe(props) {
     servings,
     instructions,
     ingredients,
+    author
   } = props
 
   function setMaxHeight() {
@@ -29,7 +30,7 @@ export default function Recipe(props) {
     setHeight(Math.max(frontHeight, backHeight))
   }
 
-  useEffect(setMaxHeight, [instructions, ingredients])
+  useEffect(setMaxHeight, [name, cookTime, servings, instructions, ingredients])
   useEffect(() => {
     window.addEventListener('resize', setMaxHeight)
     return () => window.removeEventListener('resize', setMaxHeight)
@@ -43,9 +44,22 @@ export default function Recipe(props) {
     >
       <div className="front" ref={frontEl}>
         <img className="recipe__image" src={image} alt=""/>
-        <h3 className="recipe__title">{name}</h3>
+        <div className="recipe__header">
+          <h3 className="recipe__title">{name}</h3>
+        </div>
       </div>
       <div className="back" ref={backEl}>
+       <div className="btn-container">
+         <span
+           className="btn btn--edit"
+           onClick={() => handleRecipeSelect(id)}
+         >
+         <FontAwesomeIcon icon={faEdit} />
+         </span>
+         <span className=
+         "btn btn--delete"
+         onClick={() => handleRecipeDelete(id)}><FontAwesomeIcon icon={faTrash} /></span>
+        </div>
         <div className="recipe__row">
          <span className="recipe__label">Cook Time:</span>
          <span className="recipe__value">{cookTime}</span>
@@ -55,25 +69,18 @@ export default function Recipe(props) {
           <span className="recipe__value">{servings}</span>
         </div>
         <div className="recipe__row">
-          <span className="recipe__label">Instructions:</span>
-          <div className="recipe__value recipe__instructions recipe__value--indented">{instructions}</div>
-        </div>
-        <div className="recipe__row">
           <span className="recipe__label">Ingredients:</span>
           <div className="recipe__value recipe__value--indented">
           <IngredientList ingredients={ingredients} />
-          </div>
         </div>
-        <div className="btn-container">
-           <span
-             className="btn btn--edit"
-             onClick={() => handleRecipeSelect(id)}
-           >
-           <FontAwesomeIcon icon={faEdit} />
-           </span>
-           <span className=
-           "btn btn--delete"
-           onClick={() => handleRecipeDelete(id)}><FontAwesomeIcon icon={faTrash} /></span>
+        </div>
+        <div className="recipe__row">
+          <span className="recipe__label">Instructions:</span>
+          <div className="recipe__value recipe__instructions recipe__value--indented">{instructions}</div>
+        </div>
+        <div className="recipe__row recipe__author">
+          <span className="recipe__label">Created by </span>
+          <span className="recipe__value">{author}</span>
         </div>
       </div>
     </div>
