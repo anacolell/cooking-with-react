@@ -11,7 +11,7 @@ export default function SearchBox() {
       <input
         className="search"
         type="text"
-        placeholder="What recipe are you looking for?"
+        placeholder="Search a recipe"
         onChange = {(e) => handleRecipeSearch(e.target.value)}
       />
       <FontAwesomeIcon className="search-icon" icon={faSearch} />

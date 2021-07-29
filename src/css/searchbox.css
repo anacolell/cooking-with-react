@@ -2,20 +2,18 @@
   display:flex;
   justify-content: flex-end;
   margin-bottom: 40px;
-/*  align-items: center;*/
 }
 
 .searchbox {
   display:inline-flex;
   align-items: center;
-/*  height: 60px;*/
   position: relative;
 }
 
 .search {
   font-weight: 100;
   height: 60px;
-  font-size: 24px;
+  font-size: 14px;
   display:inline-block;
   border: none;
   outline: none;
@@ -32,16 +30,13 @@
 }
 
 .search:focus {
-  width: 700px;
+  width: 200px;
   z-index: 1;
   border-bottom: 1px solid #bbb;
   cursor: text;
 }
 
 .search-icon {
-/*  text-indent: -10000px;*/
-/*  padding: 0;*/
-/*  display: inline-block;*/
   color: #555;
   font-size: 25px;
   cursor: pointer;
@@ -55,4 +50,14 @@
 
 .search-icon:hover {
   opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .search:focus {
+    width: 600px;
+  }
+
+  .search {
+    font-size: 22px;
+  }
 }
