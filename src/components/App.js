@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import RecipeList from './RecipeList'
 import RecipeEdit from './RecipeEdit'
+import SearchBox from './SearchBox'
 import '../css/app.css'
 import { v4 as uuidv4 } from 'uuid';
+
 
 export const RecipeContext = React.createContext()
 const LOCAL_STORAGE_KEY = 'cookingWithReact.recipes'
@@ -10,6 +12,7 @@ const LOCAL_STORAGE_KEY = 'cookingWithReact.recipes'
 function App() {
   const [selectedRecipeId, setSelectedRecipeId] = useState()
   const [recipes, setRecipes] = useState(sampleRecipes)
+  const [searchText, setSearchText] = useState()
   const selectedRecipe = recipes.find(recipe => recipe.id === selectedRecipeId)
 
   useEffect(() => {
@@ -25,7 +28,8 @@ function App() {
     handleRecipeAdd,
     handleRecipeDelete,
     handleRecipeSelect,
-    handleRecipeChange
+    handleRecipeChange,
+    handleRecipeSearch
   }
 
   function handleRecipeSelect(id) {
@@ -43,7 +47,8 @@ function App() {
       ingredients: [
         { id:uuidv4(), name:'', amount: '' }
       ],
-      author: ''
+      author: '',
+      vegan: false
     }
 
     setSelectedRecipeId(newRecipe.id)
@@ -64,19 +69,31 @@ function App() {
     setRecipes(recipes.filter(recipe => recipe.id !== id))
   }
 
+   function handleRecipeSearch(input) {
+    setSearchText(input)
+  }
+
+  const filteredRecipes = searchText != null
+  ? recipes.filter(r => r.name.toLowerCase().includes(searchText))
+  : recipes
+  console.log(recipes)
+  console.log(filteredRecipes)
   return (
     <RecipeContext.Provider value={recipeContextValue}>
-    <h1 className="page-title">Best recipes</h1>
     <div className="container">
-      <RecipeList recipes = {recipes} />
-    </div>
-      {selectedRecipe && <RecipeEdit recipe={selectedRecipe} /> }
-    <div className="recipe-list__add-recipe-btn-container">
-      <button
-      className="btn btn--primary"
-      onClick={handleRecipeAdd}
-      >
-      Add Recipe</button>
+{/*      <h1 className="page-title">Yummy recipes</h1>*/}
+      <SearchBox />
+      <RecipeList
+        recipes = {recipes}
+        filteredRecipes = {filteredRecipes} />
+        {selectedRecipe && <RecipeEdit recipe={selectedRecipe} /> }
+      <div className="recipe-list__add-recipe-btn-container">
+        <button
+        className="btn btn--primary"
+        onClick={handleRecipeAdd}
+        >
+        Add Recipe</button>
+      </div>
     </div>
     </RecipeContext.Provider>
   )
@@ -102,7 +119,8 @@ const sampleRecipes  = [
         amount: '1'
       }
     ],
-    author: 'Ana'
+    author: 'Ana',
+    vegan: true
   },
   {
     id:2,
@@ -123,7 +141,8 @@ const sampleRecipes  = [
         amount: '1 Liter'
       }
     ],
-    author: 'Ana'
+    author: 'Ana',
+    vegan: true
   }
 ]
 

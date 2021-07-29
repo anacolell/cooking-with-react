@@ -5,6 +5,7 @@
 @import 'recipe.css';
 @import 'ingredient-list.css';
 @import 'recipe-edit.css';
+@import 'searchbox.css';
 
 
 *, *::before, *::after {
@@ -24,6 +25,5 @@ body {
 }
 
 .container {
-/*  max-width: 900px;
-  margin: 1rem 2rem;*/
+  padding:60px;
 }

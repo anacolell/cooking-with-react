@@ -40,7 +40,7 @@ export default function Recipe(props) {
     <div
       className={`recipe ${flip ? 'flip' : ''}`}
       onClick={() => setFlip(!flip)}
-      style={{ height: height}}
+      style={{ height: height }}
     >
       <div className="front" ref={frontEl}>
         <img className="recipe__image" src={image} alt=""/>
