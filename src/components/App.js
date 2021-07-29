@@ -76,8 +76,7 @@ function App() {
   const filteredRecipes = searchText != null
   ? recipes.filter(r => r.name.toLowerCase().includes(searchText))
   : recipes
-  console.log(recipes)
-  console.log(filteredRecipes)
+
   return (
     <RecipeContext.Provider value={recipeContextValue}>
     <div className="container">

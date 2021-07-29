@@ -60,6 +60,11 @@
 textarea.recipe-edit__input {
   resize: none;
   height: 100px;
+  margin: 8px 0;
+}
+
+.recipe-edit__instructions {
+  margin-top: 10px;
 }
 
 .recipe-edit__ingredient-grid {

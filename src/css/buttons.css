@@ -5,11 +5,20 @@
 .btn {
   cursor: pointer;
   margin-left:14px;
+  font-weight: bold;
+}
+.btn--danger {
+  font-size: 22px;
+  background: none;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+/*  color:hsl(301, 76%, 87%);*/
 }
 
 .btn:hover,
 .btn:focus {
   cursor: pointer;
   margin-left:14px;
-  color: #EFD5A5;
+  color: hsl(301, 76%, 77%);
 }

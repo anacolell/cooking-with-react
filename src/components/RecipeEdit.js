@@ -84,6 +84,8 @@ export default function RecipeEdit({ recipe }) {
             onChange={e => handleChange({ servings: parseInt(e.target.value) || "" })}
             className="recipe-edit__input"
           />
+        </div>
+        <div className="recipe-edit__instructions">
           <label
             htmlFor="instructions"
             className="recipe-edit__label">
