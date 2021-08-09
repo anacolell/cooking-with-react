@@ -10,7 +10,7 @@ export default function RecipeIngredientEdit(props) {
 
   useEffect(() => {
     handleIngredientChange(currentIngredient.id, currentIngredient);
-  }, [currentIngredient]);
+  }, [currentIngredient, handleIngredientChange]);
 
   return (
     <>
