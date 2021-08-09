@@ -1,34 +1,41 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 
 export default function RecipeIngredientEdit(props) {
-  const {
-    ingredient,
-    handleIngredientChange,
-    handleIngredientDelete
-  } = props
+  const { ingredient, handleIngredientDelete, handleIngredientChange } = props;
+  const [currentIngredient, setCurrentIngredient] = useState(ingredient);
 
-  function handleChange(changes) {
-    handleIngredientChange(ingredient.id, { ...ingredient, ...changes })
-  }
+  const handleIngredientEditInputChange = (changes) => {
+    setCurrentIngredient({ ...currentIngredient, ...changes });
+  };
+
+  useEffect(() => {
+    handleIngredientChange(currentIngredient.id, currentIngredient);
+  }, [currentIngredient]);
+
   return (
     <>
       <input
         className="recipe-edit__input"
         type="text"
-        onChange={(e) => handleChange({ name: e.target.value })}
-        value={ingredient.name}
+        onChange={(e) =>
+          handleIngredientEditInputChange({ name: e.target.value })
+        }
+        value={currentIngredient.name}
       />
       <input
         className="recipe-edit__input"
         type="text"
-        onChange={(e) => handleChange({ amount: e.target.value })}
-        value={ingredient.amount}
+        onChange={(e) =>
+          handleIngredientEditInputChange({ amount: e.target.value })
+        }
+        value={currentIngredient.amount}
       />
       <button
         className="btn btn--danger"
         onClick={() => handleIngredientDelete(ingredient.id)}
       >
-        &times;</button>
+        &times;
+      </button>
     </>
-  )
+  );
 }
