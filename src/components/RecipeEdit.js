@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import axios from "axios";
 import RecipeIngredientEdit from "./RecipeIngredientEdit";
 import { RecipeContext } from "./App";
 import { v4 as uuidv4 } from "uuid";
@@ -36,11 +37,30 @@ export default function RecipeEdit({ recipe }) {
     });
   }
 
+  function uploadImage(files) {
+    const formData = new FormData();
+    formData.append("file", files[0]);
+    formData.append("upload_preset", "myrecipes");
+
+    axios
+      .post("https://api.cloudinary.com/v1_1/dwlvlqpso/image/upload", formData)
+      .then((response) => {
+        handleEditInputChange({ image: response.data.secure_url });
+        console.log("image set");
+      });
+  }
+
   return (
     <>
       <div className="overlay" />
       <div className="recipe-edit">
         <div className="recipe-edit__details-grid">
+          <input
+            type="file"
+            onChange={(e) => {
+              uploadImage(e.target.files);
+            }}
+          />
           <label htmlFor="name" className="recipe-edit__label">
             Name
           </label>
