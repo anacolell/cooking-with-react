@@ -55,6 +55,9 @@ export default function RecipeEdit({ recipe }) {
       <div className="overlay" />
       <div className="recipe-edit">
         <div className="recipe-edit__details-grid">
+          <label htmlFor="image" className="recipe-edit__label">
+            Image
+          </label>
           <input
             type="file"
             onChange={(e) => {
