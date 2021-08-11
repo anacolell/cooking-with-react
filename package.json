@@ -4,8 +4,6 @@
   "main": "server.js",
   "scripts": {
     "build": "cd client && yarn run build",
-    "install-client": "cd client && yarn install",
-    "heroku-postbuild": "yarn run install-clien && yarn run build",
     "start": "node server.js",
     "client": "cd client && yarn start",
     "dev": "concurrently -n 'server,client' -c 'magenta,cyan' \"nodemon server.js\" \"yarn run client\""
