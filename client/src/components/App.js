@@ -2,28 +2,38 @@ import React, { useState, useEffect } from "react";
 import RecipeList from "./RecipeList";
 import RecipeEdit from "./RecipeEdit";
 import SearchBox from "./SearchBox";
+import axios from "axios";
 import "../css/app.css";
 import { v4 as uuidv4 } from "uuid";
 
 export const RecipeContext = React.createContext();
-const LOCAL_STORAGE_KEY = "cookingWithReact.recipes";
+// const LOCAL_STORAGE_KEY = "cookingWithReact.recipes";
 
 function App() {
   const [selectedRecipeId, setSelectedRecipeId] = useState();
   const [recipes, setRecipes] = useState([]);
   const [searchText, setSearchText] = useState();
   const selectedRecipe = recipes.find(
-    (recipe) => recipe.id === selectedRecipeId
+    (recipe) => recipe._id === selectedRecipeId
   );
 
   useEffect(() => {
-    const recipeJSON = localStorage.getItem(LOCAL_STORAGE_KEY);
-    if (recipeJSON != null) setRecipes(JSON.parse(recipeJSON));
+    getRecipes();
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(recipes));
-  }, [recipes]);
+  function getRecipes() {
+    axios
+      .get("/api")
+      .then((response) => {
+        const allRecipes = response.data;
+        setRecipes(allRecipes);
+      })
+      .catch((error) => console.error(`Error: ${error}`));
+  }
+
+  // useEffect(() => {
+  //   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(recipes));
+  // }, [recipes]);
 
   const recipeContextValue = {
     handleRecipeAdd,
@@ -33,8 +43,8 @@ function App() {
     handleRecipeSearch,
   };
 
-  function handleRecipeSelect(id) {
-    setSelectedRecipeId(id);
+  function handleRecipeSelect(_id) {
+    setSelectedRecipeId(_id);
   }
 
   function handleRecipeAdd() {
@@ -47,25 +57,39 @@ function App() {
       instructions: "",
       ingredients: [{ id: uuidv4(), name: "", amount: "" }],
       author: "",
-      vegan: false,
     };
 
-    setSelectedRecipeId(newRecipe.id);
-    setRecipes([...recipes, newRecipe]);
+    axios({
+      url: "/api/save",
+      method: "POST",
+      data: newRecipe,
+    })
+      .then(() => {
+        console.log("Data has been sent to the server");
+      })
+      .catch(() => {
+        console.log("Internal server error");
+      })
+      .then(getRecipes());
+    setSelectedRecipeId(newRecipe._id);
+    // setRecipes([...recipes, newRecipe]);
   }
 
-  function handleRecipeChange(id, recipe) {
-    const newRecipes = [...recipes];
-    const index = newRecipes.findIndex((r) => r.id === id);
-    newRecipes[index] = recipe;
-    setRecipes(newRecipes);
+  function handleRecipeChange(_id, recipe) {
+    // const newRecipes = [...recipes];
+    // const index = newRecipes.findIndex((r) => r._id === _id);
+    // newRecipes[index] = recipe;
+    // setRecipes(newRecipes);
+    axios.put("/api/put/" + _id, recipe);
+    getRecipes();
   }
 
   function handleRecipeDelete(id) {
-    if (selectedRecipeId != null && selectedRecipeId === id) {
-      setSelectedRecipeId(undefined);
-    }
-    setRecipes(recipes.filter((recipe) => recipe.id !== id));
+    axios.delete("api/delete/" + id).then((res) => {
+      setRecipes(recipes.filter((recipe) => recipe._id !== id));
+    });
+    // if (selectedRecipeId != null && selectedRecipeId === id) {
+    //   setSelectedRecipeId(undefined);
   }
 
   function handleRecipeSearch(input) {

@@ -167,7 +167,7 @@ export default function RecipeEdit({ recipe }) {
           <button
             className="btn recipe-edit__update-button"
             onClick={() => {
-              handleRecipeChange(currentRecipe.id, currentRecipe);
+              handleRecipeChange(currentRecipe._id, currentRecipe);
               handleRecipeSelect(undefined);
             }}
           >
