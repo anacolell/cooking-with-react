@@ -46,6 +46,35 @@
   width: 100%;
 }
 
+.btn-edit {
+  padding: 6px 20px;
+  border-radius: 20px;
+}
+
+.btn-edit-update {
+  background: hsl(24, 76%, 64%);
+  margin-left: 10px;
+  color: #fff;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-edit-update:hover {
+  background: hsl(24, 76%, 54%);
+}
+
+.btn-edit-cancel {
+  background: #fff;
+  color: hsl(24, 76%, 64%);
+  border: 1px solid hsl(24, 76%, 64%);
+  transition: 0.3s;
+}
+
+.btn-edit-cancel:hover {
+  color: hsl(24, 76%, 54%);
+  border: 1px solid hsl(24, 76%, 64%);
+}
+
 .recipe-edit__details-grid:last-child {
   padding: 20px 0;
 }
@@ -75,11 +104,24 @@ textarea.recipe-edit__input {
 .recipe-edit__icon-add-ingredient {
   font-size: 15px;
   margin-left: 10px;
+  color: hsl(24, 76%, 54%);
 }
 
 .recipe-edit__icon-add-ingredient:hover {
-  color: #a6d8d5;
+  color: hsl(24, 76%, 34%);
   cursor: pointer;
+}
+
+.btn-ingredient-delete {
+  border: 2px solid hsl(24, 76%, 64%);
+  color: hsl(24, 76%, 64%);
+  background: #fff;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.btn-ingredient-delete:hover {
+  border: 1px solid hsl(24, 76%, 54%);
 }
 
 @media (max-width: 768px) {

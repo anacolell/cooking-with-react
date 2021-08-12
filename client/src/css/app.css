@@ -23,18 +23,18 @@ html {
 body {
   background-color: #338192;
   font-family: "Gotham rounded", cursive;
-  border: 10px solid #338192;
+  border: 15px solid #338192;
   padding-bottom: 60px;
 }
 
 .container {
-  padding: 30px;
+  padding: 10px;
   border-radius: 10px;
   background-color: #fff;
 }
 
 @media (min-width: 768px) {
   .container {
-    padding: 60px;
+    padding: 40px;
   }
 }

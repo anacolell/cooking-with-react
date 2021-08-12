@@ -31,7 +31,7 @@ export default function RecipeIngredientEdit(props) {
         value={currentIngredient.amount}
       />
       <button
-        className="btn btn--danger"
+        className="btn btn-ingredient-delete"
         onClick={() => handleIngredientDelete(ingredient.id)}
       >
         &times;

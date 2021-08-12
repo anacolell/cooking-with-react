@@ -57,13 +57,13 @@ export default function Recipe(props) {
       <div className="back" ref={backEl} style={{ height: height }}>
         <div className="btn-container">
           <span
-            className="btn btn--edit"
+            className="btn btn-recipe"
             onClick={() => handleRecipeSelect(_id)}
           >
             <FontAwesomeIcon icon={faEdit} />
           </span>
           <span
-            className="btn btn--delete"
+            className="btn btn-recipe"
             onClick={() => handleRecipeDelete(_id)}
           >
             <FontAwesomeIcon icon={faTrash} />

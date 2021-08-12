@@ -57,7 +57,7 @@
   font-size: 1.3rem;
   color: #1e1e1e;
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 1px;
   text-align: center;
 }
 
@@ -101,4 +101,13 @@
 
 .recipe__instructions {
   white-space: pre-line;
+}
+
+.btn-recipe {
+  margin-left: 10px;
+  transition: 0.3s;
+}
+
+.btn-recipe:hover {
+  color: hsl(24, 76%, 64%);
 }
