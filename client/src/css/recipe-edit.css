@@ -114,6 +114,7 @@ textarea.recipe-edit__input {
 
 .btn-ingredient-delete {
   border: 2px solid hsl(24, 76%, 64%);
+  padding: 6px;
   color: hsl(24, 76%, 64%);
   background: #fff;
   border-radius: 6px;
