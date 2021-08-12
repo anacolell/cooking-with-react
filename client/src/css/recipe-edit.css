@@ -78,7 +78,7 @@ textarea.recipe-edit__input {
 }
 
 .recipe-edit__icon-add-ingredient:hover {
-  color: pink;
+  color: #a6d8d5;
   cursor: pointer;
 }
 

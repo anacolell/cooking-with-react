@@ -48,13 +48,13 @@ export default function Recipe(props) {
       onClick={() => setFlip(!flip)}
       style={{ height: height }}
     >
-      <div className="front" ref={frontEl}>
+      <div className="front" ref={frontEl} style={{ height: height }}>
         <img className="recipe__image" src={image} alt="" />
         <div className="recipe__header">
           <h3 className="recipe__title">{name}</h3>
         </div>
       </div>
-      <div className="back" ref={backEl}>
+      <div className="back" ref={backEl} style={{ height: height }}>
         <div className="btn-container">
           <span
             className="btn btn--edit"

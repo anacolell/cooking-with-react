@@ -7,7 +7,6 @@ import "../css/app.css";
 import { v4 as uuidv4 } from "uuid";
 
 export const RecipeContext = React.createContext();
-// const LOCAL_STORAGE_KEY = "cookingWithReact.recipes";
 
 function App() {
   const [selectedRecipeId, setSelectedRecipeId] = useState();
@@ -30,10 +29,6 @@ function App() {
       })
       .catch((error) => console.error(`Error: ${error}`));
   }
-
-  // useEffect(() => {
-  //   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(recipes));
-  // }, [recipes]);
 
   const recipeContextValue = {
     handleRecipeAdd,
@@ -103,16 +98,20 @@ function App() {
 
   return (
     <RecipeContext.Provider value={recipeContextValue}>
+      <div className="title">
+        <h1>Share your favourite recipes</h1>
+      </div>
       <div className="container">
-        {/*      <h1 className="page-title">Yummy recipes</h1>*/}
-        <SearchBox />
+        <div className="header">
+          <div className="add-btn-container">
+            <button className="btn btn-add" onClick={handleRecipeAdd}>
+              Add recipe
+            </button>
+          </div>
+          <SearchBox />
+        </div>
         <RecipeList recipes={recipes} filteredRecipes={filteredRecipes} />
         {selectedRecipe && <RecipeEdit recipe={selectedRecipe} />}
-        <div className="recipe-list__add-recipe-btn-container">
-          <button className="btn btn--primary" onClick={handleRecipeAdd}>
-            Add Recipe
-          </button>
-        </div>
       </div>
     </RecipeContext.Provider>
   );

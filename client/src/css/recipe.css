@@ -1,40 +1,41 @@
 .recipe {
-/*  background: url('../img/chalkboard.jpg');
-  background-size: cover;*/
-  color: #black;
+  width: 100%;
+  color: black;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  position: relative;
   border-radius: 15px;
-  box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
+  position: relative;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
   transform-style: preserve-3d;
   transition: 150ms;
   cursor: pointer;
-  transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0));
+  transform: perspective(1000px) rotateY(var(--rotate-y, 0))
+    translateY(var(--translate-y, 0));
 }
 
 .recipe:hover {
-/*  --translate-y: -2px;*/
-  box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+  --translate-y: -2px;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
 }
 
 .recipe.flip {
-   --rotate-y: 180deg;
+  --rotate-y: 180deg;
 }
 
 .recipe__image {
   border-radius: 10px 10px 30% 0;
-  height:300px;
+  height: 300px;
   object-fit: cover;
   width: 100%;
 }
 
 .recipe .front,
 .recipe .back {
+  width: 100%;
   position: absolute;
   backface-visibility: hidden;
   background: white;
   border-radius: 15px;
-  transform: rotateX(0deg)
+  transform: rotateX(0deg);
 }
 
 .recipe .back {
@@ -43,20 +44,25 @@
   color: black;
   padding: 20px;
   left: 0;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    141deg,
+    rgba(255, 255, 255, 1) 34%,
+    rgba(249, 237, 229, 1) 100%
+  );
 }
 
 .recipe__title {
   padding: 40px 20px;
   font-size: 1.3rem;
-  color: #bf358f;
-  font-family: 'Fredericka the Great', cursive;
+  color: #1e1e1e;
   text-transform: uppercase;
-  letter-spacing:4px;
+  letter-spacing: 3px;
   text-align: center;
 }
 
 .recipe__header {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -68,28 +74,28 @@
 .recipe__label {
   margin-right: 5px;
   text-transform: uppercase;
-  font-size:14px;
+  font-size: 14px;
   font-weight: 700;
-  background: linear-gradient(180deg, rgba(255,255,255,0) 65%, pink 65%);
-  border-radius:0 0 5px 1px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 65%, #f5d5bf 65%);
+  border-radius: 0 0 5px 1px;
 }
 
-.recipe__author{
+.recipe__author {
   padding-top: 20px;
   text-align: right;
-  font-family: 'Indie Flower', cursive;
-  font-size:18px;
+  font-family: "Indie Flower", cursive;
+  font-size: 18px;
 }
 
 .recipe__author .recipe__label {
   text-transform: none;
   font-weight: normal;
-  background:none;
-  font-size:18px;
+  background: none;
+  font-size: 18px;
 }
 
 .recipe__value--indented {
-  margin-top:10px;
+  margin-top: 10px;
   margin-left: 6px;
 }
 

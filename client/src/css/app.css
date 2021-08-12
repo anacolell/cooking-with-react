@@ -1,31 +1,36 @@
 @import-normalize;
-@import 'font.css';
-@import 'recipe-list.css';
-@import 'buttons.css';
-@import 'recipe.css';
-@import 'ingredient-list.css';
-@import 'recipe-edit.css';
-@import 'searchbox.css';
+@import "font.css";
+@import "header.css";
+@import "recipe-list.css";
+@import "buttons.css";
+@import "title.css";
+@import "recipe.css";
+@import "ingredient-list.css";
+@import "recipe-edit.css";
 
-
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   padding: 0;
-  margin:0;
+  margin: 0;
   box-sizing: border-box;
 }
 
 html {
-  font-size:14px;
+  font-size: 14px;
 }
 
 body {
-  font-family: 'Gotham rounded', cursive;
-/*  background: url('../img/wood.jpg');
-  background-size: cover;*/
+  background-color: #338192;
+  font-family: "Gotham rounded", cursive;
+  border: 10px solid #338192;
+  padding-bottom: 60px;
 }
 
 .container {
   padding: 30px;
+  border-radius: 10px;
+  background-color: #fff;
 }
 
 @media (min-width: 768px) {

@@ -1,23 +1,28 @@
 @font-face {
   font-family: Gotham Rounded;
-  src: url('../fonts/GothamRounded-Bold.woff') format('woff'), url('../fonts/GothamRounded-Bold.woff2') format('woff2');
+  src: url("../fonts/GothamRounded-Bold.woff") format("woff"),
+    url("../fonts/GothamRounded-Bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: Gotham Rounded;
-  src: url('../fonts/GothamRounded-Light.woff') format('woff'), url('../fonts/GothamRounded-Light.woff2') format('woff2');
+  src: url("../fonts/GothamRounded-Light.woff") format("woff"),
+    url("../fonts/GothamRounded-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: Gotham Rounded;
-  src: url('../fonts/GothamRounded-Book.woff') format('woff'), url('../fonts/GothamRounded-Book.woff2') format('woff2');
+  src: url("../fonts/GothamRounded-Book.woff") format("woff"),
+    url("../fonts/GothamRounded-Book.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
-@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Leckerli+One&family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
