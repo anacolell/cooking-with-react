@@ -1,39 +1,48 @@
 import React, { useContext, useState } from "react";
 import axios from "axios";
-import RecipeIngredientEdit from "./RecipeIngredientEdit";
+import RecipeIngredientCreate from "./RecipeIngredientCreate";
 import { RecipeContext } from "./App";
 import { v4 as uuidv4 } from "uuid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
-export default function RecipeEdit({ recipe }) {
-  const { handleRecipeChange, handleRecipeSelect } = useContext(RecipeContext);
-  const [currentRecipe, setCurrentRecipe] = useState(recipe);
+export default function RecipeCreate() {
+  const [newRecipe, setNewRecipe] = useState({
+    id: uuidv4(),
+    image: "/img/default.jpg",
+    name: "",
+    servings: 1,
+    cookTime: "",
+    instructions: "",
+    ingredients: [{ id: uuidv4(), name: "", amount: "" }],
+    author: "",
+  });
+  const { handleCreateForm, handleRecipeAdd } = useContext(RecipeContext);
 
-  function handleEditInputChange(changes) {
-    setCurrentRecipe({ ...currentRecipe, ...changes });
+  function handleInputCreateChange(changes) {
+    setNewRecipe({ ...newRecipe, ...changes });
   }
 
-  function handleIngredientChange(id, ingredient) {
-    let ingredients = currentRecipe.ingredients;
+  function handleIngredientCreateChange(id, ingredient) {
+    let ingredients = newRecipe.ingredients;
     const index = ingredients.findIndex((r) => r.id === id);
     ingredients[index] = ingredient;
   }
 
-  function handleIngredientAdd() {
+  function handleIngredientCreateAdd() {
     const newIngredient = {
       id: uuidv4(),
       name: "",
       amount: "",
     };
-    handleEditInputChange({
-      ingredients: [...currentRecipe.ingredients, newIngredient],
+    handleInputCreateChange({
+      ingredients: [...newRecipe.ingredients, newIngredient],
     });
   }
 
-  function handleIngredientDelete(id) {
-    handleEditInputChange({
-      ingredients: currentRecipe.ingredients.filter((i) => i.id !== id),
+  function handleIngredientCreateDelete(id) {
+    handleInputCreateChange({
+      ingredients: newRecipe.ingredients.filter((i) => i.id !== id),
     });
   }
 
@@ -45,7 +54,7 @@ export default function RecipeEdit({ recipe }) {
     axios
       .post("https://api.cloudinary.com/v1_1/dwlvlqpso/image/upload", formData)
       .then((response) => {
-        handleEditInputChange({ image: response.data.secure_url });
+        handleInputCreateChange({ image: response.data.secure_url });
         console.log("image set");
       });
   }
@@ -71,8 +80,8 @@ export default function RecipeEdit({ recipe }) {
             type="text"
             name="name"
             id="name"
-            value={currentRecipe.name}
-            onChange={(e) => handleEditInputChange({ name: e.target.value })}
+            value={newRecipe.name}
+            onChange={(e) => handleInputCreateChange({ name: e.target.value })}
             className="recipe-edit__input"
           />
           <label htmlFor="cookTime" className="recipe-edit__label">
@@ -82,9 +91,9 @@ export default function RecipeEdit({ recipe }) {
             type="text"
             name="cookTime"
             id="cookTime"
-            value={currentRecipe.cookTime}
+            value={newRecipe.cookTime}
             onChange={(e) =>
-              handleEditInputChange({ cookTime: e.target.value })
+              handleInputCreateChange({ cookTime: e.target.value })
             }
             className="recipe-edit__input"
           />
@@ -96,9 +105,9 @@ export default function RecipeEdit({ recipe }) {
             min="1"
             name="servings"
             id="servings"
-            value={currentRecipe.servings}
+            value={newRecipe.servings}
             onChange={(e) =>
-              handleEditInputChange({
+              handleInputCreateChange({
                 servings: parseInt(e.target.value) || "",
               })
             }
@@ -112,9 +121,9 @@ export default function RecipeEdit({ recipe }) {
           <textarea
             name="instructions"
             className="recipe-edit__input"
-            value={currentRecipe.instructions}
+            value={newRecipe.instructions}
             onChange={(e) =>
-              handleEditInputChange({ instructions: e.target.value })
+              handleInputCreateChange({ instructions: e.target.value })
             }
             id="instructions"
           />
@@ -122,7 +131,7 @@ export default function RecipeEdit({ recipe }) {
         <br />
         <div className="recipe-edit__add_ingredient">
           <label className="recipe-edit__label">Ingredients</label>
-          <div onClick={() => handleIngredientAdd()}>
+          <div onClick={() => handleIngredientCreateAdd()}>
             <FontAwesomeIcon
               className="recipe-edit__icon-add-ingredient"
               icon={faPlus}
@@ -133,12 +142,12 @@ export default function RecipeEdit({ recipe }) {
           <div>Name</div>
           <div>Amount</div>
           <div></div>
-          {currentRecipe.ingredients.map((ingredient) => (
-            <RecipeIngredientEdit
+          {newRecipe.ingredients.map((ingredient) => (
+            <RecipeIngredientCreate
               key={ingredient.id}
-              currentRecipe={currentRecipe}
-              handleIngredientChange={handleIngredientChange}
-              handleIngredientDelete={handleIngredientDelete}
+              newRecipe={newRecipe}
+              handleIngredientCreateChange={handleIngredientCreateChange}
+              handleIngredientCreateDelete={handleIngredientCreateDelete}
               ingredient={ingredient}
             />
           ))}
@@ -151,26 +160,25 @@ export default function RecipeEdit({ recipe }) {
             type="text"
             name="author"
             id="author"
-            value={currentRecipe.author}
-            onChange={(e) => handleEditInputChange({ author: e.target.value })}
+            value={newRecipe.author}
+            onChange={(e) =>
+              handleInputCreateChange({ author: e.target.value })
+            }
             className="recipe-edit__input"
           />
         </div>
         <div className="recipe-edit__button-container">
           <button
             className="btn btn-edit btn-edit-cancel"
-            onClick={() => handleRecipeSelect(undefined)}
+            onClick={handleCreateForm}
           >
             Cancel
           </button>
           <button
             className="btn btn-edit btn-edit-update"
-            onClick={() => {
-              handleRecipeChange(currentRecipe._id, currentRecipe);
-              handleRecipeSelect(undefined);
-            }}
+            onClick={() => handleRecipeAdd(newRecipe)}
           >
-            Update
+            Create recipe
           </button>
         </div>
       </div>

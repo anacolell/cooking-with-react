@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import RecipeList from "./RecipeList";
 import RecipeEdit from "./RecipeEdit";
+import RecipeCreate from "./RecipeCreate";
 import SearchBox from "./SearchBox";
 import axios from "axios";
 import "../css/app.css";
-import { v4 as uuidv4 } from "uuid";
 
 export const RecipeContext = React.createContext();
 
@@ -12,6 +12,12 @@ function App() {
   const [selectedRecipeId, setSelectedRecipeId] = useState();
   const [recipes, setRecipes] = useState([]);
   const [searchText, setSearchText] = useState();
+  const [createForm, setCreateForm] = useState(false);
+
+  function handleCreateForm() {
+    setCreateForm(!createForm);
+  }
+
   const selectedRecipe = recipes.find(
     (recipe) => recipe._id === selectedRecipeId
   );
@@ -36,45 +42,31 @@ function App() {
     handleRecipeSelect,
     handleRecipeChange,
     handleRecipeSearch,
+    handleCreateForm,
   };
 
   function handleRecipeSelect(_id) {
     setSelectedRecipeId(_id);
   }
 
-  function handleRecipeAdd() {
-    const newRecipe = {
-      id: uuidv4(),
-      image: "/img/default.jpg",
-      name: "",
-      servings: 1,
-      cookTime: "",
-      instructions: "",
-      ingredients: [{ id: uuidv4(), name: "", amount: "" }],
-      author: "",
-    };
-
+  function handleRecipeAdd(newRecipeData) {
     axios({
       url: "/api/save",
       method: "POST",
-      data: newRecipe,
+      data: newRecipeData,
     })
       .then(() => {
+        console.log(newRecipeData);
         console.log("Data has been sent to the server");
       })
       .catch(() => {
         console.log("Internal server error");
       })
       .then(getRecipes());
-    setSelectedRecipeId(newRecipe._id);
-    // setRecipes([...recipes, newRecipe]);
+    handleCreateForm();
   }
 
   function handleRecipeChange(_id, recipe) {
-    // const newRecipes = [...recipes];
-    // const index = newRecipes.findIndex((r) => r._id === _id);
-    // newRecipes[index] = recipe;
-    // setRecipes(newRecipes);
     axios.put("/api/put/" + _id, recipe);
     getRecipes();
   }
@@ -83,8 +75,6 @@ function App() {
     axios.delete("api/delete/" + id).then((res) => {
       setRecipes(recipes.filter((recipe) => recipe._id !== id));
     });
-    // if (selectedRecipeId != null && selectedRecipeId === id) {
-    //   setSelectedRecipeId(undefined);
   }
 
   function handleRecipeSearch(input) {
@@ -104,12 +94,13 @@ function App() {
       <div className="container">
         <div className="header">
           <div className="add-btn-container">
-            <button className="btn btn-add" onClick={handleRecipeAdd}>
+            <button className="btn btn-add" onClick={handleCreateForm}>
               Add recipe
             </button>
           </div>
           <SearchBox />
         </div>
+        {createForm && <RecipeCreate />}
         <RecipeList recipes={recipes} filteredRecipes={filteredRecipes} />
         {selectedRecipe && <RecipeEdit recipe={selectedRecipe} />}
       </div>
