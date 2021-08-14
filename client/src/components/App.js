@@ -3,6 +3,7 @@ import RecipeList from "./RecipeList";
 import RecipeEdit from "./RecipeEdit";
 import RecipeCreate from "./RecipeCreate";
 import SearchBox from "./SearchBox";
+import SortMenu from "./SortMenu";
 import axios from "axios";
 import "../css/app.css";
 
@@ -86,6 +87,26 @@ function App() {
       ? recipes.filter((r) => r.name.toLowerCase().includes(searchText))
       : recipes;
 
+  function sortRecipes(type) {
+    const types = {
+      nameaz: "name",
+      nameza: "name",
+      oldest: "createdAt",
+      newest: "createdAt",
+    };
+    const sortProperty = types[type];
+    console.log(type);
+    console.log(sortProperty);
+    const sorted = [...recipes].sort((a, b) => {
+      if (type === "newest" || type === "nameza") {
+        return b[sortProperty].localeCompare(a[sortProperty]);
+      } else {
+        return a[sortProperty].localeCompare(b[sortProperty]);
+      }
+    });
+    setRecipes(sorted);
+  }
+
   return (
     <RecipeContext.Provider value={recipeContextValue}>
       <div className="title">
@@ -98,6 +119,7 @@ function App() {
               Add recipe
             </button>
           </div>
+          <SortMenu sortRecipes={sortRecipes} />
           <SearchBox />
         </div>
         {createForm && <RecipeCreate />}

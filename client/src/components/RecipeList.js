@@ -1,7 +1,7 @@
 import Recipe from "./Recipe";
 import Masonry from "react-masonry-css";
 
-export default function RecipeList({ recipes, filteredRecipes }) {
+export default function RecipeList({ recipes, filteredRecipes, loading }) {
   const breakpointColumnsObj = {
     default: 4,
     1100: 3,
@@ -10,6 +10,7 @@ export default function RecipeList({ recipes, filteredRecipes }) {
   };
   return (
     <>
+      <div className="loading">{loading && "Loading..."}</div>
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"
