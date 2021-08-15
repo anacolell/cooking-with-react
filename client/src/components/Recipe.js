@@ -49,6 +49,7 @@ export default function Recipe(props) {
       style={{ height: height }}
     >
       <div className="front" ref={frontEl} style={{ height: height }}>
+        <p className="text-tag">click for instructions</p>
         <img className="recipe__image" src={image} alt="" />
         <div className="recipe__header">
           <h3 className="recipe__title">{name}</h3>

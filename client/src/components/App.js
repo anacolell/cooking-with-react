@@ -95,8 +95,6 @@ function App() {
       newest: "createdAt",
     };
     const sortProperty = types[type];
-    console.log(type);
-    console.log(sortProperty);
     const sorted = [...recipes].sort((a, b) => {
       if (type === "newest" || type === "nameza") {
         return b[sortProperty].localeCompare(a[sortProperty]);
@@ -109,8 +107,10 @@ function App() {
 
   return (
     <RecipeContext.Provider value={recipeContextValue}>
-      <div className="title">
-        <h1>Share your favourite recipes</h1>
+      <div className="banner">
+        <div className="banner-container">
+          <h1 className="title">RECIPELY</h1>
+        </div>
       </div>
       <div className="container">
         <div className="header">
@@ -119,13 +119,20 @@ function App() {
               Add recipe
             </button>
           </div>
-          <SortMenu sortRecipes={sortRecipes} />
-          <SearchBox />
+          <div className="filterbox">
+            <SearchBox />
+            <SortMenu sortRecipes={sortRecipes} />
+          </div>
         </div>
         {createForm && <RecipeCreate />}
         <RecipeList recipes={recipes} filteredRecipes={filteredRecipes} />
         {selectedRecipe && <RecipeEdit recipe={selectedRecipe} />}
       </div>
+      <footer className="footer">
+        <div className="logo-container">
+          <img className="footer-logo" alt="logo" src="../img/logo.png" />
+        </div>
+      </footer>
     </RecipeContext.Provider>
   );
 }

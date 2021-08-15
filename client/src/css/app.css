@@ -7,6 +7,8 @@
 @import "recipe.css";
 @import "ingredient-list.css";
 @import "recipe-edit.css";
+@import "sort-menu.css";
+@import "footer.css";
 
 *,
 *::before,
@@ -21,10 +23,9 @@ html {
 }
 
 body {
-  background-color: #c9e8e6;
+  background-color: #fff;
   font-family: "Gotham rounded", cursive;
-  border: 15px solid #c9e8e6;
-  padding-bottom: 60px;
+  /* border: 15px solid #c9e8e6; */
 }
 
 .container {

@@ -30,6 +30,7 @@
 
 .recipe .front,
 .recipe .back {
+  position: relative;
   width: 100%;
   position: absolute;
   backface-visibility: hidden;
@@ -101,6 +102,26 @@
 
 .recipe__instructions {
   white-space: pre-line;
+}
+
+.text-tag {
+  position: absolute;
+  background-color: #666666;
+  color: white;
+  /* transform: rotate(90deg); */
+  padding: 5px 10px;
+  font-size: 12px;
+  width: 50%;
+  text-align: center;
+  top: 2px;
+  right: 10px;
+  display: none;
+  border-radius: 2px;
+}
+
+.recipe:hover .text-tag {
+  display: block;
+  top: -22px;
 }
 
 .btn-recipe {
