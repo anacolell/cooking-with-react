@@ -12,7 +12,7 @@
 # Technologies (MERN stack)
 - Frontend:
     - React: Function components, hooks, React Router
-    - HTML
+    - Axios 
     - CSS
 
 - Backend:
