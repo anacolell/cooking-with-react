@@ -1,15 +1,15 @@
 
- ## MERN application to add, edit and delete recipes 
+ # MERN application to add, edit and delete recipes 
  Recipely is a full-stack web application that acts as a recipe gallery where users can search for recipes as well as share their favourite recipes. 
  
- # Features
+ ## Features
 - Search for recipes. 
 - Sort recipes by name or date added. 
 - Create new recipe.
 - Edit existing recipe.
 - Photo upload function. 
 
-# Technologies (MERN stack)
+## Technologies (MERN stack)
 - Frontend:
     - React: Function components, hooks, React Router
     - Axios 
