@@ -91,6 +91,7 @@
   text-transform: none;
   font-weight: normal;
   background: none;
+  margin-right: 0;
 }
 
 .recipe__value--indented {
