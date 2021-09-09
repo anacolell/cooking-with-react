@@ -45,6 +45,7 @@
   color: black;
   padding: 20px;
   left: 0;
+  overflow: scroll;
   background: rgb(255, 255, 255);
   background: linear-gradient(
     141deg,
@@ -82,17 +83,14 @@
 }
 
 .recipe__author {
-  padding-top: 20px;
+  padding-bottom: 10px;
   text-align: right;
-  font-family: "Indie Flower", cursive;
-  font-size: 18px;
 }
 
 .recipe__author .recipe__label {
   text-transform: none;
   font-weight: normal;
   background: none;
-  font-size: 18px;
 }
 
 .recipe__value--indented {
@@ -108,20 +106,21 @@
   position: absolute;
   background-color: #666666;
   color: white;
-  /* transform: rotate(90deg); */
   padding: 5px 10px;
   font-size: 12px;
-  width: 50%;
+  width: 60%;
   text-align: center;
   top: 2px;
   right: 10px;
-  display: none;
   border-radius: 2px;
+  transition: all 0.4s ease;
+  z-index: -1;
+  opacity: 0;
 }
 
 .recipe:hover .text-tag {
-  display: block;
-  top: -22px;
+  transform: translateY(-22px);
+  opacity: 1;
 }
 
 .btn-recipe {

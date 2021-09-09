@@ -4,6 +4,7 @@ import RecipeEdit from "./RecipeEdit";
 import RecipeCreate from "./RecipeCreate";
 import SearchBox from "./SearchBox";
 import SortMenu from "./SortMenu";
+import Footer from "./Footer";
 import axios from "axios";
 import "../css/app.css";
 
@@ -109,7 +110,8 @@ function App() {
     <RecipeContext.Provider value={recipeContextValue}>
       <div className="banner">
         <div className="banner-container">
-          <h1 className="title">RECIPELY</h1>
+          <h1 className="title">Recipely</h1>
+          <p className="subtitle">Simple recipes that make you feel good</p>
         </div>
       </div>
       <div className="container">
@@ -128,11 +130,7 @@ function App() {
         <RecipeList recipes={recipes} filteredRecipes={filteredRecipes} />
         {selectedRecipe && <RecipeEdit recipe={selectedRecipe} />}
       </div>
-      <footer className="footer">
-        <div className="logo-container">
-          <img className="footer-logo" alt="logo" src="../img/logo.png" />
-        </div>
-      </footer>
+      <Footer />
     </RecipeContext.Provider>
   );
 }

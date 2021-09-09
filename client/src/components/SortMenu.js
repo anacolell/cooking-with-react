@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function SearchBox({ sortRecipes }) {
+export default function SortMenu({ sortRecipes }) {
   return (
     <>
-      <div>
+      <div className="sort-menu">
         <select onChange={(e) => sortRecipes(e.target.value)}>
           <option value="name">Sort by</option>
           <option value="nameaz">Name, A-Z</option>

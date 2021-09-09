@@ -36,7 +36,9 @@ export default function Recipe(props) {
     servings,
     instructions,
     ingredients,
+    author,
   ]);
+
   useEffect(() => {
     window.addEventListener("resize", setMaxHeight);
     return () => window.removeEventListener("resize", setMaxHeight);

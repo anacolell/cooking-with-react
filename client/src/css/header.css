@@ -1,19 +1,20 @@
 .header {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  width: 55%;
+  margin: 0 auto;
 }
 
 .btn-add {
   padding: 16px 32px;
-  margin-bottom: 30px;
   border: 2px solid #2a2b2a;
   border-radius: 3px;
   background-color: #fff;
   color: #1e1e1e;
   letter-spacing: 0.2rem;
   transition: all 0.3s;
+  margin: 10px 0;
 }
 
 .btn-add:hover {
@@ -21,94 +22,69 @@
   border: 2px solid #faded6;
 }
 
-.search-container {
-  margin-top: 10px;
-  margin-bottom: 50px;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.searchbox {
+.search-wrapper {
   display: inline-flex;
   align-items: center;
-  position: relative;
-}
-
-.search {
-  font-weight: 100;
-  height: 60px;
-  font-size: 14px;
-  display: inline-block;
-  border: none;
-  outline: none;
-  color: #555;
-  position: absolute;
-  right: 0;
-  background: none;
-  padding-right: 60px;
-  z-index: 3;
-  width: 0;
-  transition: width 1s cubic-bezier(0, 1, 0, 1);
-  cursor: pointer;
-}
-
-.search:focus {
-  width: 200px;
-  z-index: 1;
-  border-bottom: 1px solid #555;
-  cursor: text;
+  border: 2px solid #000;
+  background: #fff;
+  margin-bottom: 10px;
 }
 
 .search-icon {
-  color: #1e1e1e;
-  opacity: 0.8;
-  font-size: 20px;
-  cursor: pointer;
-  position: absolute;
-  top: 5;
-  right: 0;
-  z-index: 2;
-  transition: opacity 0.4s ease;
+  padding: 9px;
+  border-radius: 50%;
+  font-size: 15px;
+  color: #000;
 }
 
-.search-icon:hover {
-  opacity: 0.4;
+.searchbox {
+  border: 0;
+  outline: none;
+  font-size: 16px;
+}
+
+select {
+  font-size: 1.2rem;
+  padding: 8px 25px;
+  color: #000;
+  border: 2px solid #000;
+}
+
+select:focus {
+  outline: none;
 }
 
 @media (min-width: 768px) {
   .btn-add {
     font-size: 1.2rem;
     margin-bottom: 0;
+    padding: 16px 32px;
+    margin: 0;
   }
 
   .header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: 20px 0px;
+    width: 100%;
   }
 
-  .search-container {
-    margin-left: 0;
-    padding-right: 30px;
+  .search-wrapper {
+    padding-right: 50px;
+    margin-right: 20px;
     margin-bottom: 0;
-    padding-bottom: 0;
-  }
-  .search:focus {
-    width: 600px;
-  }
-
-  .search {
-    font-size: 22px;
-  }
-
-  .search-icon {
-    font-size: 25px;
   }
 
   .filterbox {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
+  }
+
+  select {
+    font-size: 1.2rem;
+    padding: 8px 22px;
   }
 }

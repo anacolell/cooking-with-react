@@ -1,21 +1,20 @@
 import React, { useContext } from "react";
 import { RecipeContext } from "./App";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { BsSearch } from "react-icons/bs";
 
 export default function SearchBox() {
   const { handleRecipeSearch } = useContext(RecipeContext);
   return (
-    <div className="search-container">
-      <div className="searchbox">
-        <input
-          className="search"
-          type="text"
-          placeholder="Search a recipe"
-          onChange={(e) => handleRecipeSearch(e.target.value)}
-        />
-        <FontAwesomeIcon className="search-icon" icon={faSearch} />
+    <div className="search-wrapper">
+      <div className="search-icon">
+        <BsSearch />
       </div>
+      <input
+        className="searchbox"
+        type="text"
+        placeholder="Search a recipe"
+        onChange={(e) => handleRecipeSearch(e.target.value)}
+      />
     </div>
   );
 }

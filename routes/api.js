@@ -15,6 +15,21 @@ router.get("/", (req, res) => {
     });
 });
 
+// router.get("/", async (req, res) => {
+//   try {
+//     const skip =
+//       req.query.skip && /^\d+$/.test(req.query.skip)
+//         ? Number(req.query.skip)
+//         : 0;
+
+//     const recipes = await Recipe.find({}, undefined, { skip, limit: 50 });
+
+//     res.json(recipes);
+//   } catch (e) {
+//     res.status(500).send();
+//   }
+// });
+
 router.post("/save", (req, res) => {
   const data = req.body;
 

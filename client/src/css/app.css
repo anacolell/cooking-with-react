@@ -7,7 +7,6 @@
 @import "recipe.css";
 @import "ingredient-list.css";
 @import "recipe-edit.css";
-@import "sort-menu.css";
 @import "footer.css";
 
 *,
@@ -25,17 +24,15 @@ html {
 body {
   background-color: #fff;
   font-family: "Gotham rounded", cursive;
-  /* border: 15px solid #c9e8e6; */
 }
 
 .container {
   padding: 10px;
-  border-radius: 10px;
   background-color: #fff;
 }
 
 @media (min-width: 768px) {
   .container {
-    padding: 40px;
+    padding: 40px 60px;
   }
 }
