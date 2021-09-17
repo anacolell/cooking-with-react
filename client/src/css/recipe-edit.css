@@ -73,6 +73,7 @@
 .btn-edit-cancel:hover {
   color: hsl(24, 76%, 54%);
   border: 1px solid hsl(24, 76%, 64%);
+  background: #fbf3f0;
 }
 
 .recipe-edit__details-grid:last-child {
@@ -113,7 +114,7 @@ textarea.recipe-edit__input {
 }
 
 .btn-ingredient-delete {
-  border: 2px solid hsl(24, 76%, 64%);
+  border: 1px solid hsl(24, 76%, 64%);
   padding: 6px;
   color: hsl(24, 76%, 64%);
   background: #fff;
@@ -123,6 +124,7 @@ textarea.recipe-edit__input {
 
 .btn-ingredient-delete:hover {
   border: 1px solid hsl(24, 76%, 54%);
+  background: #fbf3f0;
 }
 
 @media (max-width: 768px) {
