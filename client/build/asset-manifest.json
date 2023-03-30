@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.cc3bf11f.chunk.css",
-    "main.js": "/static/js/main.9a2d92cb.chunk.js",
-    "main.js.map": "/static/js/main.9a2d92cb.chunk.js.map",
+    "main.css": "/static/css/main.76d6b57d.chunk.css",
+    "main.js": "/static/js/main.6cf30c39.chunk.js",
+    "main.js.map": "/static/js/main.6cf30c39.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.e5e36eeb.js",
     "runtime-main.js.map": "/static/js/runtime-main.e5e36eeb.js.map",
-    "static/js/2.05d98c8e.chunk.js": "/static/js/2.05d98c8e.chunk.js",
-    "static/js/2.05d98c8e.chunk.js.map": "/static/js/2.05d98c8e.chunk.js.map",
+    "static/js/2.e982c545.chunk.js": "/static/js/2.e982c545.chunk.js",
+    "static/js/2.e982c545.chunk.js.map": "/static/js/2.e982c545.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.cc3bf11f.chunk.css.map": "/static/css/main.cc3bf11f.chunk.css.map",
-    "static/js/2.05d98c8e.chunk.js.LICENSE.txt": "/static/js/2.05d98c8e.chunk.js.LICENSE.txt",
+    "static/css/main.76d6b57d.chunk.css.map": "/static/css/main.76d6b57d.chunk.css.map",
+    "static/js/2.e982c545.chunk.js.LICENSE.txt": "/static/js/2.e982c545.chunk.js.LICENSE.txt",
     "static/media/app.css": "/static/media/GothamRounded-Light.c27e2b47.woff2"
   },
   "entrypoints": [
     "static/js/runtime-main.e5e36eeb.js",
-    "static/js/2.05d98c8e.chunk.js",
-    "static/css/main.cc3bf11f.chunk.css",
-    "static/js/main.9a2d92cb.chunk.js"
+    "static/js/2.e982c545.chunk.js",
+    "static/css/main.76d6b57d.chunk.css",
+    "static/js/main.6cf30c39.chunk.js"
   ]
 }

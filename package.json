@@ -21,6 +21,7 @@
     "mongoose": "^5.13.6",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.12",
-    "react-icons": "^4.2.0"
+    "react-icons": "^4.2.0",
+    "react-scripts": "^5.0.1"
   }
 }
